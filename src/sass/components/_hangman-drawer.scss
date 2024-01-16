@@ -1,0 +1,78 @@
+.hangman-drawer {
+    position: relative;
+    width: 240px;
+
+    &__top-hang {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        background-color: #000;
+        width: 10px;
+        height: 40px;
+    }
+
+    &__top {
+        height: 10px;
+        width: 140px;
+        margin-left: 80px;
+        background-color: #000;
+    }
+
+    &__middle {
+        width: 10px;
+        height: 400px;
+        background-color: #000;
+        margin-left: 80px;
+    }
+
+    &__bottom {
+        height: 10px;
+        width: 100%;
+        background-color: #000;
+    }
+
+    &__head {
+        position: absolute;
+        top: 40px;
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 5px solid #000;
+    }
+
+    &__body {
+        position: absolute;
+        right: 22px;
+        top: 80px;
+        width: 5px;
+        height: 100px;
+        background-color: #000;
+    }
+
+    &__right-arm, &__right-leg {
+        position: absolute;
+        right: 10px;
+        width: 5px;
+        height: 50px;
+        background-color: #000;
+        rotate: -30deg;
+    }
+
+    &__left-arm, &__left-leg {
+        position: absolute;
+        right: 35px;
+        width: 5px;
+        height: 50px;
+        background-color: #000;
+        rotate: 30deg;
+    }
+
+    &__right-arm, &__left-arm {
+        top: 100px;
+    }
+
+    &__right-leg, &__left-leg {
+        top: 170px;
+    }
+}
