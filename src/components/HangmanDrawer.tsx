@@ -22,15 +22,12 @@ const LEFT_LEG = (
     <div className="hangman-drawer__left-leg"></div>
 )
 
+const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];
+
 function HangmanDrawer() {
 	return (
         <div className="hangman-drawer">
-            {HEAD}
-            {BODY}
-            {RIGHT_ARM}
-            {LEFT_ARM}
-            {RIGHT_LEG}
-            {LEFT_LEG}
+            {BODY_PARTS.slice(0, 0)}
             <div className="hangman-drawer__top"></div>
             <div className="hangman-drawer__top-hang"></div>
             <div className="hangman-drawer__middle"></div>
