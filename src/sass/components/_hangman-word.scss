@@ -1,0 +1,21 @@
+.hangman-word {
+    max-width: 500px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: monospace;
+
+    &__letter-border {
+        border-bottom: 3px solid #000;
+    }
+
+    &__letter {
+        padding: 5px 0;
+        font-size: 5rem;
+    }
+
+    &__letter--hidden {
+        visibility: hidden;
+    }
+}
