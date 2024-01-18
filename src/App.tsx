@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './sass/app.scss'
 import HangmanDrawer from './components/HangmanDrawer'
+import HangmanWord from './components/HangmanWord'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <div className='hangman'>
         <HangmanDrawer />
+        <HangmanWord />
       </div>
     </>
   )
