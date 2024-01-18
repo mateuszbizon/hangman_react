@@ -7,8 +7,8 @@ function HangmanWord({ wordToGuess }: HangmanWordProps) {
     <div className="hangman-word">
         {wordToGuess.split("").map((letter, index) => {
             return (
-                <span className="hangman-word__letter-border">
-                    <span key={index} className="hangman-word__letter hangman-word__letter--hidden">
+                <span key={index} className="hangman-word__letter-border">
+                    <span className="hangman-word__letter hangman-word__letter--hidden">
                         {letter}
                     </span>
                 </span>
