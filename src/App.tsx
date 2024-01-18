@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './sass/app.scss'
 import HangmanDrawer from './components/HangmanDrawer'
 import HangmanWord from './components/HangmanWord'
+import Keyboard from './components/Keyboard'
 import words from "./data/words.json";
 
 function getRandomWord() {
@@ -16,6 +17,7 @@ function App() {
       <div className='hangman'>
         <HangmanDrawer />
         <HangmanWord wordToGuess={wordToGuess} />
+        <Keyboard />
       </div>
     </>
   )
