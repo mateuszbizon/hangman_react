@@ -1,11 +1,15 @@
 import keys from "../data/keys.json";
 
-function Keyboard() {
+type KeyboardProps = {
+    addNewLetter: (letter: string) => void,
+}
+
+function Keyboard({ addNewLetter }: KeyboardProps) {
   return (
     <div className="keyboard">
         {keys.map((key, index) => {
             return (
-                <button key={index} className="keyboard__button">{key}</button>
+                <button key={index} className="keyboard__button" onClick={() => addNewLetter(key)}>{key}</button>
             )
         })}
     </div>
