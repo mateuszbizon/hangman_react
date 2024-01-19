@@ -14,6 +14,10 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
   const [wrongLetters, setWrongLetters] = useState<string[]>([])
   const [goodLetters, setGoodLetters] = useState<string[]>([])
+  const [isWin, setIsWin] = useState<boolean>(false);
+  const [isLose, setIsLose] = useState<boolean>(false);
+  const [isKeyboardDisabled, setIsKeyboardDisabled] = useState<boolean>(false);
+  const amountOfAttempts = 6;
 
   function addNewLetter(letter: string) {
     if (guessedLetters.includes(letter)) return;
@@ -33,6 +37,20 @@ function App() {
     setGoodLetters(newGoodLetters)
   }
 
+  function checkGameOver() {
+    if (wrongLetters.length >= amountOfAttempts) {
+      setIsLose(true);
+      setIsKeyboardDisabled(true);
+      return;
+    }
+
+    if (wordToGuess.split("").every(letter => goodLetters.includes(letter))) {
+      setIsWin(true);
+      setIsKeyboardDisabled(true);
+      return;
+    }
+  }
+
   useEffect(() => {
     if (guessedLetters.length > 0) {
       addNewWrongLetter();
@@ -40,12 +58,18 @@ function App() {
     }
   }, [guessedLetters])
 
+  useEffect(() => {
+    if (wrongLetters.length > 0 || goodLetters.length > 0) {
+      checkGameOver();
+    }
+  }, [wrongLetters, goodLetters])
+
   return (
     <>
       <div className='hangman'>
         <HangmanDrawer wrongLettersLength={wrongLetters.length} />
         <HangmanWord wordToGuess={wordToGuess} goodLetters={goodLetters} />
-        <Keyboard addNewLetter={addNewLetter} goodLetters={goodLetters} wrongLetters={wrongLetters} />
+        <Keyboard addNewLetter={addNewLetter} goodLetters={goodLetters} wrongLetters={wrongLetters} disabled={isKeyboardDisabled} />
       </div>
     </>
   )

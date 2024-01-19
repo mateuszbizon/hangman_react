@@ -1,12 +1,13 @@
 import keys from "../data/keys.json";
 
 type KeyboardProps = {
-	addNewLetter: (letter: string) => void;
-	goodLetters: string[];
-	wrongLetters: string[];
+	addNewLetter: (letter: string) => void,
+	goodLetters: string[],
+	wrongLetters: string[],
+  disabled: boolean,
 };
 
-function Keyboard({ addNewLetter, goodLetters, wrongLetters }: KeyboardProps) {
+function Keyboard({ addNewLetter, goodLetters, wrongLetters, disabled }: KeyboardProps) {
 	return (
 		<div className='keyboard'>
 			{keys.map((key, index) => {
@@ -18,7 +19,7 @@ function Keyboard({ addNewLetter, goodLetters, wrongLetters }: KeyboardProps) {
 						key={index}
 						className={`keyboard__button ${isActiveLetter ? "keyboard__button--active" : ""} ${isInactiveLetter ? "keyboard__button--inactive" : ""}`}
 						onClick={() => addNewLetter(key)}
-            disabled={isActiveLetter || isInactiveLetter}>
+            disabled={isActiveLetter || isInactiveLetter || disabled}>
 						{key}
 					</button>
 				);
