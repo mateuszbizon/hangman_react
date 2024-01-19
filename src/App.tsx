@@ -45,7 +45,7 @@ function App() {
       <div className='hangman'>
         <HangmanDrawer wrongLettersLength={wrongLetters.length} />
         <HangmanWord wordToGuess={wordToGuess} goodLetters={goodLetters} />
-        <Keyboard addNewLetter={addNewLetter} />
+        <Keyboard addNewLetter={addNewLetter} goodLetters={goodLetters} wrongLetters={wrongLetters} />
       </div>
     </>
   )

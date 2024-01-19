@@ -24,4 +24,8 @@
         background-color: #41337A;
         color: #fff;
     }
+
+    &__button--inactive {
+        opacity: 0.5;
+    }
 }
