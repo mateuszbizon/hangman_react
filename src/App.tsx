@@ -18,6 +18,7 @@ function App() {
   const [isWin, setIsWin] = useState<boolean>(false);
   const [isLose, setIsLose] = useState<boolean>(false);
   const [reveal, setReveal] = useState<boolean>(false);
+  const [isInfoModalActive, setIsInfoModalActive] = useState<boolean>(false);
   const [isKeyboardDisabled, setIsKeyboardDisabled] = useState<boolean>(false);
   const amountOfAttempts = 6;
 
@@ -44,12 +45,14 @@ function App() {
       setIsLose(true);
       setIsKeyboardDisabled(true);
       setReveal(true);
+      setIsInfoModalActive(true);
       return;
     }
 
     if (wordToGuess.split("").every(letter => goodLetters.includes(letter))) {
       setIsWin(true);
       setIsKeyboardDisabled(true);
+      setIsInfoModalActive(true);
       return;
     }
   }
