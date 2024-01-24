@@ -1,0 +1,31 @@
+.keyboard {
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    gap: 5px;
+
+    &__button {
+        text-transform: uppercase;
+        aspect-ratio: 1/1;
+        background: none;
+        border: 2px solid #000;
+        font-weight: bold;
+        font-size: 2rem;
+        transition: background-color .2s;
+
+        &:hover:not(:disabled) {
+            background-color: #41337A;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+
+    &__button--active {
+        background-color: #41337A;
+        color: #fff;
+    }
+
+    &__button--inactive {
+        opacity: 0.5;
+    }
+}

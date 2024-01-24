@@ -24,10 +24,14 @@ const LEFT_LEG = (
 
 const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];
 
-function HangmanDrawer() {
+type HangmanDrawerProps = {
+    wrongLettersLength: number
+}
+
+function HangmanDrawer({ wrongLettersLength }: HangmanDrawerProps) {
 	return (
         <div className="hangman-drawer">
-            {BODY_PARTS.slice(0, 0)}
+            {BODY_PARTS.slice(0, wrongLettersLength)}
             <div className="hangman-drawer__top"></div>
             <div className="hangman-drawer__top-hang"></div>
             <div className="hangman-drawer__middle"></div>
