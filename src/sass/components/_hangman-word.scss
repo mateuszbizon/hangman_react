@@ -18,4 +18,9 @@
     &__letter--hidden {
         visibility: hidden;
     }
+
+    &__letter--revealed {
+        visibility: visible;
+        color: #ff0000;
+    }
 }

@@ -16,6 +16,7 @@ function App() {
   const [goodLetters, setGoodLetters] = useState<string[]>([])
   const [isWin, setIsWin] = useState<boolean>(false);
   const [isLose, setIsLose] = useState<boolean>(false);
+  const [reveal, setReveal] = useState<boolean>(false);
   const [isKeyboardDisabled, setIsKeyboardDisabled] = useState<boolean>(false);
   const amountOfAttempts = 6;
 
@@ -41,6 +42,7 @@ function App() {
     if (wrongLetters.length >= amountOfAttempts) {
       setIsLose(true);
       setIsKeyboardDisabled(true);
+      setReveal(true);
       return;
     }
 
@@ -68,7 +70,7 @@ function App() {
     <>
       <div className='hangman'>
         <HangmanDrawer wrongLettersLength={wrongLetters.length} />
-        <HangmanWord wordToGuess={wordToGuess} goodLetters={goodLetters} />
+        <HangmanWord wordToGuess={wordToGuess} goodLetters={goodLetters} reveal={reveal} />
         <Keyboard addNewLetter={addNewLetter} goodLetters={goodLetters} wrongLetters={wrongLetters} disabled={isKeyboardDisabled} />
       </div>
     </>
