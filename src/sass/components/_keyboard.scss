@@ -1,3 +1,5 @@
+@use "../abstract/colors" as *;
+
 .keyboard {
     max-width: 800px;
     display: grid;
@@ -14,14 +16,14 @@
         transition: background-color .2s;
 
         &:hover:not(:disabled) {
-            background-color: #41337A;
+            background-color: $main-color;
             color: #fff;
             cursor: pointer;
         }
     }
 
     &__button--active {
-        background-color: #41337A;
+        background-color: $main-color;
         color: #fff;
     }
 
