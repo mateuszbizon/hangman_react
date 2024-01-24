@@ -3,6 +3,7 @@ import './sass/app.scss'
 import HangmanDrawer from './components/HangmanDrawer'
 import HangmanWord from './components/HangmanWord'
 import Keyboard from './components/Keyboard'
+import InfoModal from './components/InfoModal'
 import words from "./data/words.json";
 
 function getRandomWord() {
@@ -17,6 +18,7 @@ function App() {
   const [isWin, setIsWin] = useState<boolean>(false);
   const [isLose, setIsLose] = useState<boolean>(false);
   const [reveal, setReveal] = useState<boolean>(false);
+  const [isInfoModalActive, setIsInfoModalActive] = useState<boolean>(false);
   const [isKeyboardDisabled, setIsKeyboardDisabled] = useState<boolean>(false);
   const amountOfAttempts = 6;
 
@@ -43,14 +45,20 @@ function App() {
       setIsLose(true);
       setIsKeyboardDisabled(true);
       setReveal(true);
+      setIsInfoModalActive(true)
       return;
     }
 
     if (wordToGuess.split("").every(letter => goodLetters.includes(letter))) {
       setIsWin(true);
       setIsKeyboardDisabled(true);
+      setIsInfoModalActive(true)
       return;
     }
+  }
+
+  function restartGame() {
+    
   }
 
   useEffect(() => {
@@ -68,6 +76,7 @@ function App() {
 
   return (
     <>
+      <InfoModal isWin={isWin} isLose={isLose} isInfoModalActive={isInfoModalActive} />
       <div className='hangman'>
         <HangmanDrawer wrongLettersLength={wrongLetters.length} />
         <HangmanWord wordToGuess={wordToGuess} goodLetters={goodLetters} reveal={reveal} />
