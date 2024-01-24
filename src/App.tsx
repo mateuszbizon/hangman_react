@@ -57,6 +57,21 @@ function App() {
     }
   }
 
+  function restartGame() {
+    setWordToGuess(() => getRandomWord());
+
+    setIsLose(false);
+    setIsWin(false);
+    setReveal(false);
+
+    setGoodLetters([]);
+    setWrongLetters([]);
+    setGuessedLetters([]);
+
+    setIsKeyboardDisabled(false);
+    setIsInfoModalActive(false);
+  }
+
   useEffect(() => {
     if (guessedLetters.length > 0) {
       addNewWrongLetter();
@@ -72,7 +87,7 @@ function App() {
 
   return (
     <>
-      <InfoModal isWin={isWin} isLose={isLose} isInfoModalActive={isInfoModalActive} />
+      <InfoModal isWin={isWin} isLose={isLose} isInfoModalActive={isInfoModalActive} restartGame={restartGame} />
       <div className='hangman'>
         <HangmanDrawer wrongLettersLength={wrongLetters.length} />
         <HangmanWord wordToGuess={wordToGuess} goodLetters={goodLetters} reveal={reveal} />
