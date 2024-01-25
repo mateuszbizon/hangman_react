@@ -1,18 +1,18 @@
 @use "../abstract/colors" as *;
 
 .keyboard {
-    max-width: 800px;
+    max-width: 300px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
     gap: 5px;
 
     &__button {
         text-transform: uppercase;
-        aspect-ratio: 1/1;
         background: none;
         border: 2px solid #000;
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 1.5rem;
+        padding: 5px 0;
         transition: background-color .2s;
 
         &:hover:not(:disabled) {
@@ -29,5 +29,16 @@
 
     &__button--inactive {
         opacity: 0.5;
+    }
+}
+
+@media (min-width: 768px) {
+    .keyboard {
+        max-width: 700px;
+
+        &__button {
+            font-size: 2rem;
+            padding: 10px 0;
+        }
     }
 }

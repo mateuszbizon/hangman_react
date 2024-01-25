@@ -1,7 +1,7 @@
 .hangman-word {
     max-width: 500px;
     display: flex;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
     flex-wrap: wrap;
     font-family: monospace;
@@ -12,7 +12,7 @@
 
     &__letter {
         padding: 5px 0;
-        font-size: 5rem;
+        font-size: 3rem;
     }
 
     &__letter--hidden {
@@ -22,5 +22,13 @@
     &__letter--revealed {
         visibility: visible;
         color: #ff0000;
+    }
+}
+
+@media (min-width: 768px) {
+    .hangman-word {
+        &__letter {
+            font-size: 5rem;
+        }
     }
 }
